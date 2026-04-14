@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TaskFlow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>TaskFlow</h1>
+  <nav>
+    <a onclick="showView('login')">Login</a>
+    <a onclick="showView('register')">Register</a>
+    <a onclick="showView('projects')">Projects</a>
+    <a onclick="logout()">Logout</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <!-- LOGIN -->
+  <div id="loginView" class="card">
+    <h2>Login</h2>
+    <input id="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+    <button class="primary" onclick="login()">Login</button>
+    <p id="loginError"></p>
+  </div>
+
+  <!-- REGISTER -->
+  <div id="registerView" class="card" style="display:none;">
+    <h2>Register</h2>
+    <input id="rname" placeholder="Name">
+    <input id="remail" placeholder="Email">
+    <input id="rpassword" type="password" placeholder="Password">
+    <button class="primary" onclick="register()">Register</button>
+    <p id="registerError"></p>
+  </div>
+
+  <!-- PROJECTS -->
+  <div id="projectView" style="display:none;">
+    <div class="card">
+      <h2>Create Project</h2>
+      <input id="pname" placeholder="Project name">
+      <button class="primary" onclick="createProject()">Create</button>
+    </div>
+
+    <div id="projects" class="grid"></div>
+  </div>
+
+  <!-- TASKS -->
+  <div id="taskView" style="display:none;">
+    <div class="card">
+      <h2>Add Task</h2>
+      <input id="title" placeholder="Task title">
+      <select id="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button class="primary" onclick="createTask()">Add</button>
+    </div>
+
+    <div class="kanban">
+      <div class="column"><h3>Todo</h3><div id="todo"></div></div>
+      <div class="column"><h3>In Progress</h3><div id="in_progress"></div></div>
+      <div class="column"><h3>Done</h3><div id="done"></div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>TaskFlow © 2026</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
